@@ -9,7 +9,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState('');
   const [data, setData] = useState([]);
-  const backUrl = process.env.REACT_APP_BACKEND_URL;
+  const backUrl = "https://kingjaweedbackend.onrender.com";
 
   const king = (e) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ const Home = () => {
       return toast.error("Input can't be empty");
     }
     setLoading(true);
-    axios.post("https://kingjaweedbackend.onrender.com/create", { name })
+    axios.post(`${backUrl}/create`, { name })
       .then((res) => {
         toast.success("Added successfully");
         setLoading(false);
@@ -34,7 +34,7 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get("https://kingjaweedbackend.onrender.com/")
+    axios.get(`${backUrl}/`)
       .then((res) => {
         setData(res.data.data || []); // Ensure res.data.data is an array
         setLoading(false);
