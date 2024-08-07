@@ -17,7 +17,7 @@ const Home = () => {
       return toast.error("Input can't be empty");
     }
     setLoading(true);
-    axios.post(`${backUrl}/create`, { name })
+    axios.post("https://kingjaweedbackend.onrender.com/create", { name })
       .then((res) => {
         toast.success("Added successfully");
         setLoading(false);
@@ -34,7 +34,7 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`${backUrl}/`)
+    axios.get("https://kingjaweedbackend.onrender.com/")
       .then((res) => {
         setData(res.data.data || []); // Ensure res.data.data is an array
         setLoading(false);
