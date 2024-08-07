@@ -6,7 +6,7 @@ import myModel from './models/model.js'
 import { config } from 'dotenv';
 app.use(express.json());
 app.use(cors({
-    origin:["http://localhost:3000","http://kingjaweedfrontend.onrender.com"]
+    origin:["http://localhost:3000","https://kingjaweedfrontend.onrender.com/"]
 }));
 config()
 const port=process.env.PORT || 5000;
